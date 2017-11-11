@@ -1,11 +1,27 @@
 
 
 头部栏
+    <div style="position: fixed;top:0px;">aaaaa</div>为什么必须top:0px;
+    因为
+    <div style="position: fixed;">aaaaa</div>它在父元素,margin不在父元素中
+    <div id="contain" style="margin-top:100px;">fadf</div>
 底部栏
+    //首页内容兼容高度的写法
+    var heigth=$(window).height();
+    var head=150px;
+    $('#contain').height(heigth-head);
 头部栏-返回键
+    line-height: 2.5rem;
+    float: left;
 头部栏-更新
 头部栏-标题
+    line-height: 2.5rem;垂直居中
+    text-align: center;水平居中
+    width: 100%;占全部才能,为什么不与float:left冲突
+    position: absolute;因为它不与float:left冲突,绝对定位,相对于父元素(非默认定位的),类似fixed
 头部栏-左中右
+    display: -webkit-box;
+bug-头部栏遮挡下面内容
 底部栏-平分自适应
 底部栏-图标在上,文字在下
 自适应
