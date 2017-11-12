@@ -1,24 +1,34 @@
 
 
 头部栏
-    <div style="position: fixed;top:0px;">aaaaa</div>为什么必须top:0px;
-    因为
-    <div style="position: fixed;">aaaaa</div>它在父元素,margin不在父元素中
+    <html><body>
+    <div style="position: fixed;">header</div>
+    <div style="height:100%">100%</div>
+    aaaaaaaaaaaaa<br>
+    </body></html>
+    -=-=-=
+    <div style="position: fixed;top:0px;">aaaaa</div>必须top:0px;因为fixed相对于父元素,而margin部分不在父元素中
     <div id="contain" style="margin-top:100px;">fadf</div>
 底部栏
     //首页内容兼容高度的写法
     var heigth=$(window).height();
     var head=150px;
     $('#contain').height(heigth-head);
-头部栏-返回键
-    line-height: 2.5rem;
-    float: left;
-头部栏-更新
-头部栏-标题
-    line-height: 2.5rem;垂直居中
+头部栏
+    <html><body>
+    <div style="float: left;">back</div>
+    <div style="float: right;">more</div>
+    <div style="width:100%;text-align: center;">title</div>
+    <div style="height:100%">100%</div>
+    aaaaaaaaaaaaa<br>
+    </body></html>
+    标题-美观
     text-align: center;水平居中
-    width: 100%;占全部才能,为什么不与float:left冲突
-    position: absolute;因为它不与float:left冲突,绝对定位,相对于父元素(非默认定位的),类似fixed
+    width: 100%;在left在旁边,不是重叠,因为float还占位置
+    返回键
+    float: left;靠左
+    更多
+    float: rigth;靠左
 头部栏-左中右
     display: -webkit-box;
 bug-头部栏遮挡下面内容
@@ -32,5 +42,16 @@ bug-头部栏遮挡下面内容
 圆角
 间隔
 block
+position: 
+    定位
+    fixed:脱离文档流,相对于浏览器
+    absolute:脱离文档流,相对于非static的父元素
+    absolute;因为它不与float:left冲突,绝对定位,相对于父元素(非默认定位的),类似fixed
+float: left;
+    靠左,如果后面的元素不够位置显示,则下移,所以float占文档流
+    title在left在旁边,不是重叠,因为float还占位置
+float没有完全脱离文档流，position完全脱离文档流
+display: -webkit-box;
+
 
 
