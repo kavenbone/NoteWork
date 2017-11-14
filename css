@@ -53,5 +53,12 @@ float: left;
 float没有完全脱离文档流，position完全脱离文档流
 display: -webkit-box;
 
-
-
+弹性盒子模型(box旧,flex新)
+可以自动调整子元素的高和宽，来很好的填充任何不同屏幕大小的显示设备中的可用显示空间
+#father {display:box;}
+#son1 { box-flex: 2; }//占两份,排除了固定尺寸的
+#son2 { box-flex: 1; }//占一份
+#son3 { width: 50px; }//固定为50px,因为
+兼容:为了兼容,最好添加以下前缀
+-moz-
+-webkit-
