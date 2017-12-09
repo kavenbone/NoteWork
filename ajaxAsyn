@@ -1,0 +1,44 @@
+
+//多个ajax处理完成的方法
+//json是扩展,可为''
+//原理:每个ajax完成都调用finish,判断是否调用ajaxFinishFun
+var ajaxRequestList=0;//总数
+var ajaxRequestRun=0;//执行完成数
+var ajaxFinishFun;//执行完成的处理函数
+var ajaxIsStartExe=false;//防止特殊情况
+//添加一个ajax,只是添加,未执行
+//注意finish的最后要加一句代码,表示finish的ajax执行完成
+function addAjax(json,finish){
+    ajaxRequestList=ajaxRequestList+1;
+    if($.isFunction(finish)){
+        finish();
+    }
+}
+//设置所有ajax完成
+function ajaxFinishInit(json,func){
+    if($.isFunction(func)){
+        ajaxFinishFun=func;
+    }
+}
+//某个ajax处理完成调用些方法
+function ajaxFinish(json){
+    ajaxRequestRun=ajaxRequestRun+1;
+    if($.isFunction(ajaxFinishFun)&&ajaxRequestList==ajaxRequestRun&&ajaxIsStartExe==true){
+        console.log('ajaxFinish');
+        ajaxFinishFun();
+        ajaxRequestList=0;//总数,清空初始数据
+        ajaxRequestRun=0;//执行完成数
+        ajaxIsStartExe=false;//防止特殊情况
+        ajaxFinishFun=null;//执行完成的处理函数
+    }
+}
+//执行所有ajax,
+//特殊情况1:第一个很快完成,以为没有第二个,ajaxFinishFun就执行了
+//特殊情况2:执行这个方法时,所有都执行完成了
+function ajaxExecute(json){
+    ajaxIsStartExe=true;//处理特殊情况1
+    //特殊情况2
+    ajaxRequestList=ajaxRequestList+1;//ajaxRequestRun+1,所以ajaxRequestRun也要+1
+    //与所有完成并发呢?应该不会
+    ajaxFinish('');
+}
