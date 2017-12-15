@@ -12,11 +12,13 @@ public abstract class SocketServer  implements SocketFace{
 	ServerSocket server=null;
 	Socket socket=null;
 	
-	BufferedReader in;
+	//BufferedReader in;
     //由Socket对象得到输入流，并构造相应的BufferedReader对象
-    PrintWriter writer;//可用的
-	//OutputStream writer;//不可以
-    
+    //PrintWriter writer ;//可以
+    OutputStream writer;//不可以,可以了
+    InputStream in;
+
+	
     /**
      * 接收数据
      */
@@ -47,14 +49,19 @@ public abstract class SocketServer  implements SocketFace{
     		receive("client connect");
     		
     		//相关IO流
-            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            writer=new PrintWriter(socket.getOutputStream());//可以
-            //writer=socket.getOutputStream();//不可以
+            //in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            //writer=new PrintWriter(socket.getOutputStream());//可以
+            writer=socket.getOutputStream();//不可以
+	    in = socket.getInputStream();//input ,output都要对应的才行,之前不行,因为没对应	
+	
             
             //监听客户端数据
             String receive="";
+	    byte[] byt=new byte[1024];
             while(!receive.equals("endiiafdoefda")){//解决客户端关闭时,服务端也关闭
-            	receive=in.readLine();//接收客户端数据
+            	//receive=in.readLine();//接收客户端数据
+		in.read(byt);
+            	receive=new String(byt);
             	receive(receive);
             }
     	}catch(Exception e) {//出错，打印出错信息
@@ -66,12 +73,16 @@ public abstract class SocketServer  implements SocketFace{
      * @param text
      */
     public void write(String text,String chartSet){
-//        	writer.write(text.getBytes());
 		    try {
 				byte[] bytes=text.getBytes(chartSet);
 				String txt=new String(bytes,chartSet);
-				writer.println(txt);
+				//writer.println(txt);
+			        writer.write(text.getBytes());
 				writer.flush();//刷新输出流，使Server马上收到该字符串
+			    
+			    
+
+			    
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
