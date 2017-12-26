@@ -64,9 +64,15 @@ import java.util.StringTokenizer;
 			try {
 				String data = "";
 				while ((data = br.readLine()) != null) {
-					if (data.trim().length() > 0) {
-						str.append(data + "\r\n");
-					}
+					//if (data.trim().length() > 0) {
+						//str.append(data + "\r\n");
+					//}
+					str.append(data + "\r\n");
+				}
+				//\r,\n,length()判断不了换行,只能去掉最后一个换行,最后一行不为空,会多一行
+				int index=str.lastIndexOf("\r\n");
+				if(index>-1){
+					str.delete(index, str.length());
 				}
 			} catch (Exception e) {
 				str.append(e.toString());
