@@ -1,0 +1,44 @@
+
+
+1\创建仓库
+
+右上角的"+"号,
+new repository
+Initialize this repository with a README 
+
+
+1\fork仓库
+
+
+1\更新fork
+
+
+
+在自己的仓库中
+1
+This branch is 1 commit behind kavenbone:master. 
+后面,点击pull request
+2
+switching the base
+3
+create pull request
+4
+merge pull request
+5
+commit merged
+
+
+
+1\删除仓库
+
+进入仓库,setting
+
+
+delete this repository
+
+
+
+1\防止别人删除
+
+另一个账号fork
+
