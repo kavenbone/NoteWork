@@ -1,0 +1,23 @@
+
+iOS7以后,ios禁止本机Mac地址和ip
+
+//需要加入SystemConfiguration.framework
+#import <SystemConfiguration/CaptiveNetwork.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+
+- (NSString *)getWiFiMac{
+    NSString *ssid = @"Not Found";
+    NSString *bssid = @"Not Found";
+    CFArrayRef myArray =CNCopySupportedInterfaces();
+    if (myArray != nil) {
+        CFDictionaryRef myDict =CNCopyCurrentNetworkInfo(CFArrayGetValueAtIndex(myArray,0));
+        if (myDict != nil) {
+            NSDictionary *dict = (NSDictionary*)CFBridgingRelease(myDict);
+            ssid = [dict valueForKey:@"SSID"];           //路由名称
+            bssid = [dict valueForKey:@"BSSID"];     //路由Mac地址
+        }
+    }
+    return bssid;
+}
+
+
