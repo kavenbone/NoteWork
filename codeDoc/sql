@@ -1,0 +1,13 @@
+
+
+map.put("id", id);//a=’1’
+map.put("name#like", name);//name like 'aa',id >99等
+where += " and id =1 or a=b";//扩展and a=1 or b=c
+map.put(SQL, wheres);
+map.put(ORDERBY, id);
+---------查询语句
+.queryAll();//列表
+.fetch();//单个
+.queryPage();//分页
+---------update
+.hqlExcute("update from User ", o);
