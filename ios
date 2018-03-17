@@ -1,0 +1,29 @@
+
+
+
+上传构建版本正在处理中
+1\设置账号为app管理,开发是收不到邮件的
+1\info.plist文件中添加权限说明
+1\iTunes Connect中的版本号是否一致?
+1\APP是否缺少图标?
+1\有邮件返回说明
+1\第三方库使用私有方法,如获取手机号
+参考
+http://blog.csdn.net/zhaoyabei/article/details/54646376
+http://blog.csdn.net/listen_to_rain/article/details/52849355?locationNum=3&fps=1
+
+
+contains a symbolic link 'uexDevice.bundle/uexDevice.bundle' 
+does not exist or is outside of the package. 
+是build phases 里面copy bundle resource
+里面有相关的bundle
+
+
+
+其它方法
+1\finder,前往~Library/Developer/Xcode/DerivedData/,清空
+1\clear
+1\enable bitcode 设置为 NO
+参考
+https://stackoverflow.com/questions/18519920/error-on-app-store-submission-a-symbolic-link-resolves-to-a-location-outside-of
+
