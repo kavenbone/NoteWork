@@ -27,3 +27,16 @@ does not exist or is outside of the package.
 参考
 https://stackoverflow.com/questions/18519920/error-on-app-store-submission-a-symbolic-link-resolves-to-a-location-outside-of
 
+
+
+配置URLScheme
+http://blog.csdn.net/sevenquan/article/details/54342281
+
+点击info.plist文件
+propetylist
+--url types
+----item 0
+------url schemest
+--------item 0 string wxa71ce3538553b31d
+
+
