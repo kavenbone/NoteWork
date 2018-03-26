@@ -1,0 +1,61 @@
+
+<html>
+<body>
+平均分<br>
+<div>
+display: -webkit-box;
+display: box;//兼容性
+display: block;
+-webkit-box-flex: 1;
+</div>
+<div style="display: -webkit-box;display: box;">
+<button style="display: block;-webkit-box-flex: 1;">按钮1</button><button style="display: block;-webkit-box-flex: 1;">按钮2</button>
+</div>
+按钮<br>
+<div>
+margin: 0 .5rem;//两按钮之间有间隔
+line-height: 2.5rem;//上下有空位
+border: none;//去掉边框(阴影)
+border-radius: .25rem;//圆角
+background: #ed7116;//背景
+color: #fff;//字体颜色
+</div>
+<div>
+<button style="margin: 0 .5rem;line-height: 2.5rem;border: none;border-radius: .25rem;">按钮1</button>
+</div>
+<br>
+间隔<br>
+<div>
+margin: 0 0 .5rem 0;左右上下?
+</div>
+<div>
+<button style="margin: 0 0 2rem 0;">按钮1</button>
+</div>
+<br>
+列表对齐,未完成<br>
+<div>
+dl,dt,dd
+line-height: 1.5rem;
+</div>
+<div>
+<dl style="line-height: 1.5rem;display: -webkit-flex;">
+<dt>111111</dt><dd>a</dd>
+<dt>2</dt><dd>bbbbbbbbb</dd>
+</dl>
+</div>
+<br>
+美观<br>
+<div>
+padding:;//让内容居中,不紧
+</div>
+<div>
+<div style="padding:1rem;border:1px solid #000">内容</div>
+</div>
+<br>
+兼容性<br>
+<div>
+display: box;
+display: -webkit-box;
+</div>
+</body>
+</html>
