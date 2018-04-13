@@ -1,0 +1,10 @@
+
+
+SecureCRT 查看tomcat控制台
+cd /home/
+cd apache-tomcat
+cd logs
+ls
+tail -f catalina.out
+
+
