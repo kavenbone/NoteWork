@@ -1,0 +1,45 @@
+
+<方法说明>
+https://blog.csdn.net/gredn/article/details/27528723
+svnkit的一些好说明
+SVNUpdateClient类对外提供的方法可以用来检出，更新，切换、重新定位工作副本，也可以从版本资源库中导出目录或文件。提供的方法及其对应的Subversion客户端命令主要有：
+l  doCheckOut(…) 从版本资源库检出工作副本，对应“svn checkout”；
+l  doUpdate(…)  把工作副本更新为最新版本或某个指定版本，对应“svn update”；
+l  doSwitch(…)  更新工作副本至同一资源库中的不同 URL，对应“svn switch”；
+l  doExport(..) 从版本资源库库中导出目无版本控制的工作副本，对应“svn export”；
+l  doRelocate(…) 重新定位工作副本，指向不同的资源库根 URL，对应“svn relocate”。
+
+SVNWCClient类主要提供和本地工作副本相关的操作方法，同时也提供一些需要访问版本资源库的方法。提供的方法及其对应的Subversion客户端命令主要有：
+l  doAdd(…)  把文件和目录纳入版本控制，会在下一次提交时生效，对应“svn add”；
+l  doDelete(…)   从工作副本中删除一个文件或目录，对应“svn delete”；
+l  doCleanup(…)  清理工作副本，删除锁，继续未完成操作等，对应“svn cleanup”；
+l  doInfo(…)   显示一个工作副本条目的信息，对应“svn info”；
+l  doLock(…)  锁定资源库中的路径，使其他用户不能向其提交修改，对应“svn lock”；
+l  doUnlock(…)  解除工作副本或URL的锁定，对应“svn unlock”。
+ 
+SVNCommitClient类提供把变更提交到版本资源库上的一些相关操作。提供的方法及其对应的Subversion客户端命令主要有：
+l  doCommit(…) 把工作副本的修改提交到资源库，对应“svn commit”；
+l  doImport(…) 将未纳入版本控制的文件或目录树提交到资源库，对应“svn import”；
+l  doDelete(…) 从资源库中删除文件和目录，对应“svn delete URL；
+l  doMkDir(…) 创建纳入版本控制的新目录，对应“svn mkdir URL”。
+</方法说明>
+
+<参考资料>
+High Level API通过封装、使用Low Level API，使开发工作变得相对简单、容易。
+
+
+查看文档
+svn diff
+https://svnkit.com/javadoc/org/tmatesoft/svn/core/wc/SVNDiffClient.html
+
+https://blog.csdn.net/u012621115/article/details/52936222
+使用svnkit对svn新增代码统计、代码查询
+
+http://beisicao.iteye.com/blog/1112843
+java集成svnkit
+重点是各方法讲解,例子不好看
+
+https://blog.csdn.net/bfhx1314/article/details/20473159
+SVN导出版本差异的文件
+根据之前的一片文章   <<使用SVNKit与ANT导出SVN版本差异的列表>>   参考 写的
+</参考资料>
