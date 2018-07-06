@@ -22,8 +22,20 @@ l  doCommit(…) 把工作副本的修改提交到资源库，对应“svn commi
 l  doImport(…) 将未纳入版本控制的文件或目录树提交到资源库，对应“svn import”；
 l  doDelete(…) 从资源库中删除文件和目录，对应“svn delete URL；
 l  doMkDir(…) 创建纳入版本控制的新目录，对应“svn mkdir URL”。
+ 
+
 </方法说明>
 
+<diff>
+  
+ diff
+产生微分输出，描述URL1/RN和URL2/RM之间的增量。
+diffstate
+产生一个差异概要，它列出PATH1/RN和PATS2/RM之间的更改项目，而不创建文本增量。
+doGetLogEligibleMergeInfo
+驱动一个日志条目处理程序，将符合合并的修订从GysRrcPATH（如SRCPEGRIVIEW）转换为路径（如PPEGRIVE）。
+
+</diff>
 <参考资料>
 High Level API通过封装、使用Low Level API，使开发工作变得相对简单、容易。
 
