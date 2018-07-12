@@ -1,0 +1,9 @@
+
+
+menu.js实现菜单
+
+父菜单id=父菜单id
+menu.parent.id=menu.id
+
+注意:有权限才显示
+
